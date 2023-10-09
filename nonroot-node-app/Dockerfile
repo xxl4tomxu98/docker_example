@@ -10,13 +10,13 @@ WORKDIR /usr/local/app
 
 # TODO - Copy in the package.json and yarn.lock files into the working directory,
 # setting the owner as app-user
-COPY --chown=app-user ./package.json ./yarn.lock /usr/local/app/
+COPY --chown=app-user package.json yarn.lock ./
 
 # TODO - Run yarn install and yarn cache clean to keep the image size minimal
 RUN yarn install && yarn cache clean
 
 # TODO - Copy in the src directory into a directory named src
-COPY --chown=app-user ./src /usr/local/app/src
+COPY --chown=app-user ./src ./src
 
 # TODO - Indicate this image exposes port 3000
 EXPOSE 3000
